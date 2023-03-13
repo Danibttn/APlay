@@ -1,0 +1,154 @@
+.cabecalho__container {
+    display: flex; /*propriedade para alinhar, parte de baixo sao como quero alinhar*/
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /*cabecalho fixo*/
+    top: 0; /*coordenada que ele quer fixado*/
+}
+
+.cabecalho__pesquisar__item {
+    display: none; /*faz sumir a pesquisa*/
+
+}
+
+.menu__container {
+    position: fixed;
+    bottom: 0%; /*fixo na parte de baixo*/
+    height: 74px; /*diminuir a altura*/
+    width: 100%; /*de um lado a outro 100% do elemento pai, body*/
+
+}
+
+.menu__lista { /*menu*/
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+
+}
+
+.menu__lista li {
+    align-self: center;
+
+}
+
+.menu__itens {
+    display: flex;
+    flex-direction: column; /*para os icones e o escrito ficarem em coluna*/
+    gap: 5px; 
+}
+
+.menu__lista:nth-child(2), /*para  desaparecer os blocos de lista img/exemplos/nth-child.jpg*/ /*e pra onde foram? kkkkkpqp*/
+.menu__lista:nth-child(3),
+.menu__lista:nth-child(4) {
+    display: none;
+}
+
+.superior__secao__container { 
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /*faz as palavras nao quebrarem quando diminui a tela, porem, paralisa*/
+    overflow: scroll; /* cria a barra de rolagem para ver os intens, que estao paralisados */
+    gap: 15px;  /* espacamento so entre os itens*/
+
+}
+
+
+/* VIDEO */
+
+.videos__container {
+    display: flex; /*videos alinhados*/
+    flex-wrap: wrap; /*ja estao um do lado do outro, porem grudados*/
+    gap: 10px;
+    
+}
+
+.videos__item {
+    height: 303px;
+    width: 280px;
+    flex-grow: 1; /* define a proporcao que o item deve crescer caso necessario*/ 
+}
+
+.rodape__container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; /*quebra das colunas para a lateral*/
+
+
+}
+
+@media (min-width: 834px ) { /*fala ate onde deve funcionar os qru para tablet e mobile*/
+
+    /*cabecalho*/
+    .cabecalho__pesquisar__item {
+        display: block ; /*faz ela aparecer e sumir quando chegar nos 834px, alinha em blocos*/
+    }
+
+    /*menu lateral*/
+    .menu__container { /* aqui é a configuração para tablet, anterior era de celular*/
+        left: 0;
+        height: auto;
+        width: 74px;
+        top: 80px;
+    }
+    
+    .menu__lista { /* aqui é a configuração para tablet*/
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 15px;
+        gap: 33px;
+    }
+
+    /*rodape*/
+    .rodape__container {
+        justify-content: space-between; /*espacamento nos itens na vertical, corrigi*/
+    }
+}
+
+@media (min-width: 1440px ) {
+
+    .menu__container {
+        width: 239px;
+        overflow: scroll;
+    }
+
+    .menu__lista:nth-child(2), 
+    .menu__lista:nth-child(3),
+    .menu__lista:nth-child(4) {
+        display: flex; /* para aparecer aquelas listas que sumiram kkk */
+    }
+
+    .menu__lista {
+        height: auto;/*teve q fazer isso pra aparecer a lista, pois o outro qru estava atrapalhando*/
+        padding: 20px 17px 20px 15px; /*para o azul de quando passsa o mouse ficasse limitado a esse tamanho*/
+        gap: 15px; /*para diminuir o espacamento da lista lateral azul*/
+    }
+
+    .menu__itens { /* para colocar os logo e a escrita da lista em linha e conf da lista lateral azul*/
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .menu__lista:nth-child(3) { /*a lista esta invertida, isso arruma*/
+        flex-direction: column-reverse;
+    }
+    /*organização da ulta parte do menu azul*/
+    .jogos {
+        order: 3; /*era pra estar no 3 lugar*/
+    }
+
+
+    .filmes {
+        order: 2;
+    }
+
+    .premium {
+        order: 1;
+
+    }
+
+    .maispagina {
+        order: 4;
+    }
+
+}
